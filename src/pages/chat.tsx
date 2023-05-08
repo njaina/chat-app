@@ -1,13 +1,8 @@
-
+import UnitChat from "./chat/unitChat";
 const Chat = ()=>{
-    const logout = ()=>{
-        localStorage.clear();
-        window.location.reload();
-    }
     return (
         <main>
-        welcome
-        <button onClick={logout}>logout</button>
+        <UnitChat/>
         </main>
     )
 }
