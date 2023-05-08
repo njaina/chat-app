@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.input, .bio{
+    width: 30vw;
+    height: 10vh;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+.input{
+    border: 0;
+}
+
+.buttonClass{
+    margin-top: 15px;
+    width: 20vw;
+    height: 8vh;
+    color:whitesmoke;
+    background-color: rgb(19, 22, 219);
+    outline: none;
+    border: 0;
+    border-radius: 10px;
+}
