@@ -5,10 +5,10 @@ const Chat = ()=>{
         window.location.reload();
     }
     return (
-        <>
+        <main>
         welcome
         <button onClick={logout}>logout</button>
-        </>
+        </main>
     )
 }
 export default Chat;
