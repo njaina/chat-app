@@ -19,7 +19,7 @@ useEffect(()=>{
 })
     return(
         <>
-        {value?<Chat/>:
+        {value!==''?<Chat/>:
         <button onClick={manageClick} >Click</button>}
         </>
     )
