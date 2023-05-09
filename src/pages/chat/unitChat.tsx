@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import chatStyle from "./chat.module.css"
+import chatStyle from "./Chat.module.css"
 const UnitChat = ()=>{
     const history = useRouter();
     const logout = ()=>{
