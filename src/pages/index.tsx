@@ -6,9 +6,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   useEffect(() => {
-    const user = localStorage.getItem('user');
+    const userAuth = localStorage.getItem('email');
+    const userForm = localStorage.getItem('formData');
 
-    if (user) {
+    if (userAuth || userForm) {
       Router.push('/chat');
     } else {
       Router.push('/login');
