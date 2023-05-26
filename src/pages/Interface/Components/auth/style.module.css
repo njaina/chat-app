@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+    background-color: aliceblue;
 }
 
 .input, .bio{
@@ -21,7 +22,11 @@
     margin-top: 15px;
     width: 20vw;
     height: 8vh;
-    color:whitesmoke;
+    color:rgb(255, 255, 255);
+    font-weight: 100;
+    line-height: 1.1;
+    font-size: 32px;
+    padding: 10px 0;
     background-color: rgb(19, 22, 219);
     outline: none;
     border: 0;
