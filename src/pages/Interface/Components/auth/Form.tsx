@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import form_style from '../style.module.css';
+import form_style from './style.module.css';
 
 export interface FormInputData {
   name: string;

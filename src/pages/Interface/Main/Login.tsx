@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Head from "../Components/Header/Header";
 import Form, {FormInputData} from "../Components/auth/Form";
 import Auth from "../Components/auth/GoogleAuth";
-import style from "../styles/Login.module.css";
+import style from "../../@/styles/Login.module.css";
 
 const Login: React.FC = () => {
   const history = useRouter();
