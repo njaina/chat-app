@@ -1,4 +1,4 @@
-import UnitChat from "../Interface/Components/chat/unitChat";
+import UnitChat from "../Components/chat/unitChat";
 const Chat = ()=>{
     return (
         <main>
