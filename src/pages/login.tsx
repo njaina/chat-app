@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Form, {FormInputData} from "../Components/auth/RegistrationForm";
 import Auth from "../Components/auth/GoogleAuth";
 import Head from "../Components/Header/Header";
+import LoginForm from "../Components/auth/LoginForm";
 
 const Login: React.FC = () => {
 
@@ -21,7 +22,7 @@ const Login: React.FC = () => {
     
       <Head title="Login" />
       <main>
-        <Form onSubmit={handleFormSubmit} />
+        <LoginForm onLogin={handleFormSubmit}/>
         <Auth onAuthenticate={handleAuthenticate} />
       </main>
     </>
