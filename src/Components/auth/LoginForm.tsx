@@ -1,44 +1,32 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import form_style from './style.module.css';
 
-export interface FormInputData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  bio: string;
+interface User {
+    email: string;
+    password: string;
+  }
+
+interface LoginProps {
+  onLogin: SubmitHandler<User>;
 }
 
-interface FormProps {
-  onSubmit: SubmitHandler<FormInputData>;
-}
-
-const Form: React.FC<FormProps> = ({ onSubmit }) => {
+const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInputData>();
+  } = useForm<User>();
 
-  const renderErrorMessage = (field: keyof FormInputData) => {
+  const renderErrorMessage = (field: keyof User) => {
     return errors[field] && <span>This field is required</span>;
   };
 
-  const handleFormSubmit: SubmitHandler<FormInputData> = (data) => {
-    onSubmit(data);
+  const handleLoginSubmit: SubmitHandler<User> = (data) => {
+    onLogin(data);
   };
 
   return (
-    <form className={form_style.container} onSubmit={handleSubmit(handleFormSubmit)}>
-      <input
-        className={form_style.input}
-        type="text"
-        name="name"
-        placeholder="Name"
-        {...register('name', { required: true })}
-      />
-      {renderErrorMessage('name')}
-
+    <form className={form_style.container} onSubmit={handleSubmit(handleLoginSubmit)}>
       <input
         className={form_style.input}
         type="email"
@@ -57,26 +45,11 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       />
       {renderErrorMessage('password')}
 
-      <input
-        className={form_style.input}
-        type="password"
-        name="confirmPassword"
-        placeholder="Confirm password"
-        {...register('confirmPassword', { required: true })}
-      />
-      {renderErrorMessage('confirmPassword')}
-
-      <textarea
-        className={form_style.bio}
-        placeholder="About you"
-        {...register('bio')}
-      />
-
-      <button className={form_style.buttonClass} type="submit">
-        Submit
+      <button className={form_style.loginButton} type="submit">
+        Login
       </button>
     </form>
   );
 };
 
-export default Form;
+export default LoginForm;

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Form, {FormInputData} from "../Components/auth/LoginForm";
+import Form, {FormInputData} from "../Components/auth/RegistrationForm";
 import Auth from "../Components/auth/GoogleAuth";
 import Head from "../Components/Header/Header";
 

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {auth, google} from '../../../pages/conf'
+import {auth, google} from '../../pages/conf'
 import { signInWithPopup } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
