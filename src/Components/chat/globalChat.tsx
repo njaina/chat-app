@@ -1,20 +1,3 @@
-// import { useRouter } from "next/router";
-// import chatStyle from "./Chat.module.css"
-// const UnitChat = ()=>{
-//     const history = useRouter();
-//     const logout = ()=>{
-//         localStorage.clear();
-//         history.push('/login')
-//     }
-//     return (
-//         <main className={chatStyle.main} >
-//         welcome
-//         <button className={chatStyle.button} onClick={logout}>logout</button>
-//         </main>
-//     )
-// }
-// export default UnitChat;
-import { useRouter } from 'next/router';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import form_style from './style.module.css';
 
@@ -22,10 +5,11 @@ interface SendMessageFormData {
   message: string;
 }
 
-const SendMessageForm: React.FC = () => {
-  const router = useRouter();
-  const { user_id } = router.query;
+interface SendMessageFormProps {
+  onSubmit: SubmitHandler<SendMessageFormData>;
+}
 
+const SendMessageForm: React.FC<SendMessageFormProps> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -37,8 +21,7 @@ const SendMessageForm: React.FC = () => {
   };
 
   const handleFormSubmit: SubmitHandler<SendMessageFormData> = (data) => {
-    // Envoyer le message en utilisant les données (data) et l'identifiant de l'utilisateur (user_id)
-    console.log('Message sent:', data.message);
+    onSubmit(data);
   };
 
   return (
