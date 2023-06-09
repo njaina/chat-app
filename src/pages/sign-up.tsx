@@ -15,7 +15,7 @@ export default function SignUp  () {
         <main className={Style.mainContainer}>
         <Head title="sign-up"/>
         <Form/>
-        <Switch onClick={handleClick} name="Sign in" />
+        <Switch className={Style.button} onClick={handleClick} name="Sign in" />
         </main>
     )
 }
