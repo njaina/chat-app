@@ -25,10 +25,10 @@ const LoginForm = () => {
   const handleLoginSubmit: SubmitHandler<User> = async (data) => {
     try {
       await loginUser(data);
-      console.log('Utilisateur connecté avec succès');
+      console.log('*****OK*****');
       history.push("/profile")
     } catch (error) {
-      console.error("Erreur lors de la connexion de l'utilisateur");
+      console.error("****KO****");
     }
 
   };
