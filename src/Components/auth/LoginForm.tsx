@@ -2,6 +2,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import Style from '../../styles/Primary.module.css';
 import { loginUser } from '../../api/connexion/Login';
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface User {
     email: string;
@@ -17,7 +19,12 @@ const LoginForm = () => {
   } = useForm<User>();
 
   const renderErrorMessage = (field: keyof User) => {
-    return errors[field] && <span>This field is required</span>;
+    return errors[field] && (
+      <span style={{ color: 'red' }}>
+        <FontAwesomeIcon icon={faExclamationCircle} />
+        This field is required
+      </span>
+    );
   };
 
   const history = useRouter();
@@ -26,7 +33,7 @@ const LoginForm = () => {
     try {
       await loginUser(data);
       console.log('*****OK*****');
-      history.push("/profile")
+      history.push("/profile");
     } catch (error) {
       console.error("****KO****");
     }

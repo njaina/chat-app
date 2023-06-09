@@ -2,6 +2,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import Style from '../../styles/Primary.module.css';
 import { registerUser } from '../../api/connexion/Registering';
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface FormData {
   name: string;
@@ -19,7 +21,12 @@ const Form: React.FC = () => {
   } = useForm<FormData>();
 
   const renderErrorMessage = (field: keyof FormData) => {
-    return errors[field] && <span>This field is required</span>;
+    return errors[field] && (
+      <span style={{ color: 'red' }}>
+        <FontAwesomeIcon icon={faExclamationCircle} />
+        This field is required
+      </span>
+    );
   };
   const history = useRouter();
 

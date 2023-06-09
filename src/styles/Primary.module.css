@@ -50,7 +50,7 @@
     border: 0;
     border-radius: 10px;
 }
-.button{
+.button, .regirsterButton{
     width: 17vw;
     height: 6vh;
     color:rgb(255, 255, 255);
