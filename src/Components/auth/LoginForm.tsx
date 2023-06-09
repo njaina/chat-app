@@ -1,6 +1,6 @@
-import { ST } from 'next/dist/shared/lib/utils';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Style from '../../styles/Login.module.css';
+import { loginUser } from '../../api/connexion/Login';
 
 interface User {
     email: string;
@@ -22,7 +22,15 @@ const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
     return errors[field] && <span>This field is required</span>;
   };
 
-  const handleLoginSubmit: SubmitHandler<User> = (data) => {
+
+  const handleLoginSubmit: SubmitHandler<User> = async (data) => {
+    try {
+      await loginUser(data);
+      console.log('Utilisateur connecté avec succès');
+    } catch (error) {
+      console.error("Erreur lors de la connexion de l'utilisateur");
+    }
+
     onLogin(data);
   };
 

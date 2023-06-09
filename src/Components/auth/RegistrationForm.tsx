@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import form_style from './style.module.css';
-import axios from 'axios';
+import { registerUser } from '../../api/connexion/Registering';
 
 interface FormData {
   name: string;
@@ -15,7 +15,6 @@ interface PageProps {
 }
 
 export async function getServerProps() {
-  // Effectuez des opérations côté serveur ici
   const initialData: FormData = {
     name: '',
     email: '',
@@ -24,7 +23,6 @@ export async function getServerProps() {
     bio: '',
   };
 
-  // Renvoyer les données initiales en tant que propriétés à la page
   return {
     props: {
       initialData,
@@ -45,20 +43,12 @@ const Form: React.FC<PageProps> = ({ initialData }) => {
 
   const handleFormSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      const response = await axios.post('http://localhost:8080/users', data);
-
-      if (response.status === 200) {
-        // L'utilisateur a été créé avec succès
-        console.log('Utilisateur créé avec succès');
-      } else {
-        // Une erreur s'est produite lors de la création de l'utilisateur
-        console.error('Erreur lors de la création de l\'utilisateur');
-      }
+      await registerUser(data);
+      console.log('Utilisateur créé avec succès');
     } catch (error) {
-      console.error('Erreur lors de l\'envoi de la requête', error);
+      console.error("Erreur lors de la création de l'utilisateur");
     }
   };
-
   return (
     <form className={form_style.container} onSubmit={handleSubmit(handleFormSubmit)}>
       <input
