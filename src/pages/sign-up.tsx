@@ -1,8 +1,25 @@
 import React from "react"
+import { useRouter } from "next/router";
+import Form, {FormInputData} from "../Components/auth/RegistrationForm";
+import { Switch } from "../Components/something/switchBtn";
+import Head from "../Components/something/Header";
 export default function SignUp  () {
+
+  const history = useRouter();
+
+  const handleFormSubmit = (formData: FormInputData) => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+    history.push("/chat");
+  };
+
+  const handleClick = () =>{
+    history.push("/login")
+  }
     return(
         <>
-        <h1>test</h1>
+        <Head title="sign-up"/>
+        <Form onSubmit={handleFormSubmit}/>
+        <Switch onClick={handleClick} name="Sign in" />
         </>
     )
 }

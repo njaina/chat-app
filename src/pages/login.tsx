@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
-import Form, {FormInputData} from "../Components/auth/RegistrationForm";
+import {FormInputData} from "../Components/auth/RegistrationForm";
 import Auth from "../Components/auth/GoogleAuth";
-import Head from "../Components/Header/Header";
+import Head from "../Components/something/Header";
 import LoginForm from "../Components/auth/LoginForm";
+import { Switch } from "../Components/something/switchBtn";
 
 const Login: React.FC = () => {
 
@@ -17,12 +18,17 @@ const Login: React.FC = () => {
     history.push("/chat");
   };
 
+  const handleClick = () => {
+    history.push("/sign-up")
+  }
+
   return (
     <>
     
       <Head title="Login" />
       <main>
         <LoginForm onLogin={handleFormSubmit}/>
+        <Switch onClick={handleClick} name="Sign up here" />
         <Auth onAuthenticate={handleAuthenticate} />
       </main>
     </>
