@@ -6,9 +6,6 @@ import Head from "../Components/features/Header";
 export default function SignUp  () {
 
   const history = useRouter();
-
-
-
   const handleClick = () =>{
     history.push("/login")
   }
