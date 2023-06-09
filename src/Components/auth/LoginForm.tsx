@@ -1,5 +1,6 @@
+import { ST } from 'next/dist/shared/lib/utils';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import form_style from './style.module.css';
+import Style from '../../styles/Login.module.css';
 
 interface User {
     email: string;
@@ -26,9 +27,9 @@ const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
   };
 
   return (
-    <form className={form_style.container} onSubmit={handleSubmit(handleLoginSubmit)}>
+    <form className={Style.container} onSubmit={handleSubmit(handleLoginSubmit)}>
       <input
-        className={form_style.input}
+        className={Style.input}
         type="email"
         name="email"
         placeholder="Email address"
@@ -37,7 +38,7 @@ const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
       {renderErrorMessage('email')}
 
       <input
-        className={form_style.input}
+        className={Style.input}
         type="password"
         name="password"
         placeholder="Password"
@@ -45,7 +46,7 @@ const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
       />
       {renderErrorMessage('password')}
 
-      <button className={form_style.loginButton} type="submit">
+      <button className={Style.loginButton} type="submit">
         Login
       </button>
     </form>

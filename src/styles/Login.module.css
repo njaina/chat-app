@@ -1,4 +1,4 @@
-.container{
+/* .container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,4 +7,50 @@
     width: 35vw ;
     height: 80vh;
     background-color: rgb(0, 0, 0,0.900);
+} */
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.input, .bio{
+    width: 30vw;
+    height: 8vh;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+.input{
+    border: 0;
+}
+
+.buttonClass{
+    margin-top: 15px;
+    width: 20vw;
+    height: 8vh;
+    color:rgb(255, 255, 255);
+    font-weight: 200;
+    line-height: 1.1;
+    font-size: 32px;
+    background-color: rgb(19, 22, 219);
+    outline: none;
+    border: 0;
+    border-radius: 10px;
+}
+
+.loginButton{
+    width: 17vw;
+    height: 6vh;
+    color:rgb(255, 255, 255);
+    font-weight: 200;
+    line-height: 1.1;
+    font-size: 32px;
+    background-color: rgb(19, 22, 219);
+    outline: none;
+    border: 0;
+    border-radius: 10px;
 }

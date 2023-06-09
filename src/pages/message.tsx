@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Switch } from "../Components/features/SwitcherButton";
 
-export default function Channel (){
+export default function Message (){
     const history = useRouter();
     const handleClick = ()=> history.push("./channel/create")
 

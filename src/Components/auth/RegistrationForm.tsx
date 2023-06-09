@@ -66,11 +66,11 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       />
       {renderErrorMessage('confirmPassword')}
 
-      {/**<textarea
+      <textarea
         className={form_style.bio}
         placeholder="About you"
         {...register('bio')}
-  />*/}
+  />
 
       <button className={form_style.regirsterButton} type="submit">
         Submit
