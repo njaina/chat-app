@@ -18,7 +18,7 @@ export default function SignUp  () {
     return(
         <>
         <Head title="sign-up"/>
-        <Form onSubmit={handleFormSubmit}/>
+        <Form/>
         <Switch onClick={handleClick} name="Sign in" />
         </>
     )

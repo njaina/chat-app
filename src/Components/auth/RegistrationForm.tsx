@@ -1,7 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import form_style from './style.module.css';
+import axios from 'axios';
 
-export interface FormInputData {
+interface FormData {
   name: string;
   email: string;
   password: string;
@@ -9,23 +10,53 @@ export interface FormInputData {
   bio: string;
 }
 
-interface FormProps {
-  onSubmit: SubmitHandler<FormInputData>;
+interface PageProps {
+  initialData: FormData;
 }
 
-const Form: React.FC<FormProps> = ({ onSubmit }) => {
+export async function getServerProps() {
+  // Effectuez des opérations côté serveur ici
+  const initialData: FormData = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    bio: '',
+  };
+
+  // Renvoyer les données initiales en tant que propriétés à la page
+  return {
+    props: {
+      initialData,
+    },
+  };
+}
+
+const Form: React.FC<PageProps> = ({ initialData }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInputData>();
+  } = useForm<FormData>({ defaultValues: initialData });
 
-  const renderErrorMessage = (field: keyof FormInputData) => {
+  const renderErrorMessage = (field: keyof FormData) => {
     return errors[field] && <span>This field is required</span>;
   };
 
-  const handleFormSubmit: SubmitHandler<FormInputData> = (data) => {
-    onSubmit(data);
+  const handleFormSubmit: SubmitHandler<FormData> = async (data) => {
+    try {
+      const response = await axios.post('http://localhost:8080/users', data);
+
+      if (response.status === 200) {
+        // L'utilisateur a été créé avec succès
+        console.log('Utilisateur créé avec succès');
+      } else {
+        // Une erreur s'est produite lors de la création de l'utilisateur
+        console.error('Erreur lors de la création de l\'utilisateur');
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi de la requête', error);
+    }
   };
 
   return (
@@ -70,7 +101,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
         className={form_style.bio}
         placeholder="About you"
         {...register('bio')}
-  />
+      />
 
       <button className={form_style.regirsterButton} type="submit">
         Submit
