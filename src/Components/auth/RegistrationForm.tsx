@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import form_style from './style.module.css';
 import { registerUser } from '../../api/connexion/Registering';
+import { useRouter } from 'next/router';
 
 interface FormData {
   name: string;
@@ -40,11 +41,14 @@ const Form: React.FC<PageProps> = ({ initialData }) => {
   const renderErrorMessage = (field: keyof FormData) => {
     return errors[field] && <span>This field is required</span>;
   };
+  const history = useRouter();
 
   const handleFormSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       await registerUser(data);
       console.log('Utilisateur créé avec succès');
+      history.push('/login')
+
     } catch (error) {
       console.error("Erreur lors de la création de l'utilisateur");
     }
