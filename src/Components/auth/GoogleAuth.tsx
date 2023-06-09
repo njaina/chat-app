@@ -34,4 +34,3 @@ const Auth: React.FC<{ onAuthenticate: () => void }> = ({ onAuthenticate }) => {
       );
     };
 export default Auth;
-    

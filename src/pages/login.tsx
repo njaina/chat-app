@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import {FormInputData} from "../Components/auth/RegistrationForm";
 import Auth from "../Components/auth/GoogleAuth";
-import Head from "../Components/something/Header";
+import Head from "../Components/features/Header";
 import LoginForm from "../Components/auth/LoginForm";
-import { Switch } from "../Components/something/switchBtn";
+import { Switch } from "../Components/features/SwitcherButton";
 
 const Login: React.FC = () => {
 

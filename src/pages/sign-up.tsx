@@ -1,8 +1,8 @@
 import React from "react"
 import { useRouter } from "next/router";
 import Form, {FormInputData} from "../Components/auth/RegistrationForm";
-import { Switch } from "../Components/something/switchBtn";
-import Head from "../Components/something/Header";
+import { Switch } from "../Components/features/SwitcherButton";
+import Head from "../Components/features/Header";
 export default function SignUp  () {
 
   const history = useRouter();
