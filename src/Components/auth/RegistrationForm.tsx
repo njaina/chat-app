@@ -34,7 +34,7 @@ const Form: React.FC = () => {
     try {
       await registerUser(data);
       console.log('***OK***');
-      history.push('/login')
+      history.push('/profile')
 
     } catch (error) {
       console.error("****KO****");
