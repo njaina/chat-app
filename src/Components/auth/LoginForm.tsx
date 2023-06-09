@@ -1,17 +1,15 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Style from '../../styles/Login.module.css';
+import Style from '../../styles/Primary.module.css';
 import { loginUser } from '../../api/connexion/Login';
+import { useRouter } from 'next/router';
 
 interface User {
     email: string;
     password: string;
   }
 
-interface LoginProps {
-  onLogin: SubmitHandler<User>;
-}
 
-const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
+const LoginForm = () => {
   const {
     register,
     handleSubmit,
@@ -22,16 +20,17 @@ const LoginForm: React.FC<LoginProps> = ({ onLogin }) => {
     return errors[field] && <span>This field is required</span>;
   };
 
+  const history = useRouter();
 
   const handleLoginSubmit: SubmitHandler<User> = async (data) => {
     try {
       await loginUser(data);
       console.log('Utilisateur connecté avec succès');
+      history.push("/profile")
     } catch (error) {
       console.error("Erreur lors de la connexion de l'utilisateur");
     }
 
-    onLogin(data);
   };
 
   return (

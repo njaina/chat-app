@@ -4,7 +4,7 @@ import Auth from "../Components/auth/GoogleAuth";
 import Head from "../Components/features/Header";
 import LoginForm from "../Components/auth/LoginForm";
 import { Switch } from "../Components/features/SwitcherButton";
-import Style from '../styles/Buttons.module.css'
+import Style from '../styles/Primary.module.css'
 
 const Login: React.FC = () => {
 
@@ -21,8 +21,8 @@ const Login: React.FC = () => {
   return (
     <>
       <Head title="Login" />
-      <main>
-        <LoginForm onLogin={handleAuthenticate}/>
+      <main className={Style.mainContainer} >
+        <LoginForm />
         <Switch className={Style.button} onClick={handleClick} name="Sign up here" />
         <Auth onAuthenticate={handleAuthenticate} />
       </main>
