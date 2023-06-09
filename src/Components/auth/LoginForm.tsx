@@ -33,6 +33,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       <input
         className={form_style.input}
         type="text"
+        name="name"
         placeholder="Name"
         {...register('name', { required: true })}
       />
@@ -41,6 +42,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       <input
         className={form_style.input}
         type="email"
+        name="email"
         placeholder="Email address"
         {...register('email', { required: true })}
       />
@@ -49,6 +51,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       <input
         className={form_style.input}
         type="password"
+        name="password"
         placeholder="Password"
         {...register('password', { required: true })}
       />
@@ -57,6 +60,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       <input
         className={form_style.input}
         type="password"
+        name="confirmPassword"
         placeholder="Confirm password"
         {...register('confirmPassword', { required: true })}
       />

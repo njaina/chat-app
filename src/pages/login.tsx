@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import Form, {FormInputData} from "../Components/Components/auth/Form";
-import Auth from "../Components/Components/auth/GoogleAuth";
-import Head from "../Components/Components/Header/Header";
+import Form, {FormInputData} from "../Components/auth/LoginForm";
+import Auth from "../Components/auth/GoogleAuth";
+import Head from "../Components/Header/Header";
 
 const Login: React.FC = () => {
 
