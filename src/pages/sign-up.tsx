@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import Form from "../Components/auth/RegistrationForm";
 import { Switch } from "../Components/features/SwitcherButton";
 import Head from "../Components/features/Header";
+import Style from '../styles/Primary.module.css'
+
 export default function SignUp  () {
 
   const history = useRouter();
@@ -10,10 +12,10 @@ export default function SignUp  () {
     history.push("/login")
   }
     return(
-        <>
+        <main className={Style.mainContainer}>
         <Head title="sign-up"/>
         <Form/>
         <Switch onClick={handleClick} name="Sign in" />
-        </>
+        </main>
     )
 }
