@@ -11,7 +11,7 @@ const Login: React.FC = () => {
   const history = useRouter();
 
   const handleAuthenticate = () => {
-    history.push("/chat");
+    history.push("/profile");
   };
 
   const handleClick = () => {
@@ -22,6 +22,7 @@ const Login: React.FC = () => {
     <>
       <Head title="Login" />
       <main className={Style.mainContainer} >
+        <h2>Log in here</h2>
         <LoginForm />
         <Switch className={Style.button} onClick={handleClick} name="Sign up here" />
         <Auth onAuthenticate={handleAuthenticate} />

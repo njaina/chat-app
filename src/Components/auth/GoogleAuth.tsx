@@ -29,7 +29,7 @@ const Auth: React.FC<{ onAuthenticate: () => void }> = ({ onAuthenticate }) => {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <button className={style.buttonClass} onClick={manageClick}>Authenticate with Google</button>
+          <button className={style.buttonClass} onClick={manageClick}>Connect with Google</button>
         </>
       );
     };

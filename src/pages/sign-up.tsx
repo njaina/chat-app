@@ -13,6 +13,7 @@ export default function SignUp  () {
   }
     return(
         <main className={Style.mainContainer}>
+        <h2>Sign up here</h2>
         <Head title="sign-up"/>
         <Form/>
         <Switch className={Style.button} onClick={handleClick} name="Sign in" />

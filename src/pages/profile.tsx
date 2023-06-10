@@ -1,5 +1,5 @@
-import  {fetchUserData}  from '../api/profile/getUserProfile';
-import  {updateProfile}  from '../api/profile/editUserProfile';
+import { fetchUserData } from '../api/profile/getUserProfile';
+import { updateProfile } from '../api/profile/editUserProfile';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../Components/features/Sidebar';
 import Style from '../styles/Primary.module.css';
@@ -13,6 +13,7 @@ interface UserProfile {
 
 const Profile: React.FC = () => {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
     const fetchUserProfileData = async () => {
@@ -31,14 +32,19 @@ const Profile: React.FC = () => {
     try {
       await updateProfile(data);
       console.log('Profil mis à jour avec succès');
+      setShowEditForm(false);
     } catch (error) {
       console.error('Erreur lors de la mise à jour du profil', error);
     }
   };
 
+  const handleEditClick = () => {
+    setShowEditForm(true);
+  };
+
   return (
     <main className={Style.FlexContainer}>
-      <Sidebar />
+      <Sidebar onEditClick={handleEditClick} />
       <div className={Style.props}>
         {userProfile && (
           <div>
@@ -47,9 +53,11 @@ const Profile: React.FC = () => {
             <p>Bio: {userProfile.bio}</p>
           </div>
         )}
-        <h1>Contents</h1>
+        {!showEditForm && <h1>Contents</h1>}
+        {showEditForm && (
+          <EditProfileForm defaultValues={userProfile} onSubmit={handleProfileSubmit} />
+        )}
       </div>
-      <EditProfileForm defaultValues={userProfile} onSubmit={handleProfileSubmit} />
     </main>
   );
 };

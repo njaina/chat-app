@@ -19,11 +19,13 @@ export default function (){
     return(
         <main className={Styles.FlexContainer} >
         <Sidebar/>
+        <div>
         <h1>Channel create</h1>
         <CreateChannelForm onSubmit={handleSubmit}/>
         {createdChannelId && (
           <div>{createdChannelId}</div>
         )}
+        </div>
         </main>
     )
 }
