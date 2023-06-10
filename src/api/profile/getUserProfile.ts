@@ -9,7 +9,7 @@ interface User {
 
 export const fetchUserData = async (): Promise<User> => {
   try {
-    const response = await axios.get<User>(`${API_URL}/users`); 
+    const response = await axios.get<User>(`${API_URL}/user`); 
     return response.data;
   } catch (error) {
     throw new Error("Erreur lors de la récupération des informations de l'utilisateur");
