@@ -22,11 +22,11 @@ export default function Sidebar() {
             </ul>
           )}
         </h2>
-        <h2 className={currentPath === '/channel' ? Style.active : ''}>
+        <h2 className={currentPath.startsWith('/channel/') ? Style.active : ''}>
           <FontAwesomeIcon icon={faComments} />
           Channel
         </h2>
-        <h2 className={currentPath === '/message' ? Style.active : ''}>
+        <h2 className={currentPath.startsWith('/message/') ? Style.active : ''}>
           <FontAwesomeIcon icon={faEnvelope} />
           Message
         </h2>
