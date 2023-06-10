@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import form_style from './style.module.css';
-
+import Style from '../../../styles/Primary.module.css';
 interface CreateChannelFormData {
   channelName: string;
   type: string;
@@ -26,9 +25,9 @@ const CreateChannelForm: React.FC<CreateChannelFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form className={form_style.container} onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className={Style.container} onSubmit={handleSubmit(handleFormSubmit)}>
       <input
-        className={form_style.input}
+        className={Style.input}
         type="text"
         name="channelName"
         placeholder="Channel Name"
@@ -36,13 +35,13 @@ const CreateChannelForm: React.FC<CreateChannelFormProps> = ({ onSubmit }) => {
       />
       {renderErrorMessage('channelName')}
 
-      <select className={form_style.input} name="type" {...register('type', { required: true })}>
+      <select className={Style.input} name="type" {...register('type', { required: true })}>
         <option value="public">Public</option>
         <option value="private">Private</option>
       </select>
       {renderErrorMessage('type')}
 
-      <button className={form_style.createChannelButton} type="submit">
+      <button className={Style.createChannelButton} type="submit">
         Create Channel
       </button>
     </form>
