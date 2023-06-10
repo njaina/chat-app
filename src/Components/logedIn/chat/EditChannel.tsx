@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import form_style from './style.module.css';
+import { editChannel } from '../../../api/channel/update'
 
 interface EditChannelFormData {
   type: string;
@@ -20,8 +21,14 @@ const EditChannelForm: React.FC<EditChannelFormProps> = ({ onSubmit }) => {
     return errors[field] && <span>This field is required</span>;
   };
 
-  const handleFormSubmit: SubmitHandler<EditChannelFormData> = (data) => {
-    onSubmit(data);
+  const handleFormSubmit: SubmitHandler<EditChannelFormData> = async (data) => {
+    try {
+      await editChannel('channelId', data); // Remplacez 'channelId' par l'ID du canal approprié
+      onSubmit(data);
+      console.log('Canal édité avec succès');
+    } catch (error) {
+      console.error('Erreur lors de l\'édition du canal', error);
+    }
   };
 
   return (
